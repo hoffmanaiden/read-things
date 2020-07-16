@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 // root of react
@@ -24,9 +24,9 @@ class App extends Component{
 
   componentDidMount(){
     this.props.fetchUser();
-    // if(this.props.auth){
-    //   this.props.history.pushState(this.state, '/surveys')
-    // }
+    if(this.props.auth){
+      this.props.history.pushState(this.state, '/home')
+    }
   }
 
   render() {
