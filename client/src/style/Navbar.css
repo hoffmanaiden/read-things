@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+.Navbar{
+  background-color: #bbdefb;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px 10%;
+}
+a{
+  text-decoration: none; /* remove link underline*/
+  color: black;
+}
+ul{
+  list-style: none; /* remove list bullet-points*/
+}
+.logo-left{
+  font-family: 'Balsamiq Sans', cursive;
+  cursor: pointer;
+  font-weight: 400; 
+  font-size: 20px;
+}
+.nav-right li {
+  display: inline-block;
+  padding: 0px 20px;
+}

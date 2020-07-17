@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import '../style/Navbar.css'
+
 class Navbar extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -9,20 +11,22 @@ class Navbar extends Component {
         return;
       case false:
         return (
-          <span>
-            <li><a href='/auth/google'>Login</a></li>
-          </span>
+          <li className='nav-item'><a href='/auth/google'>Login</a></li>
         );
       default:
-        return(<a href='/api/logout'>Logout</a>)
+        return (
+          <span>
+            <li><a href='/api/logout'>Logout</a></li>
+          </span>
+        );
     }
   }
   render() {
     console.log(this.props);
     return (
-      <div className='nav-wrapper #bbdefb blue lighten-4'>
-        <Link to={this.props.auth ? `/${this.props.auth.googleId}/home` : '/home'} className='brand-logo'>Read Things</Link>
-        <ul className='right'>
+      <div className='Navbar'>
+        <Link to={'/home'} className='logo-left'>read things</Link>
+        <ul className='nav-right'>
           {this.renderContent()}
         </ul>
       </div>

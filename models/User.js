@@ -30,7 +30,7 @@ const userSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   }],
-  following: [{
+  follows: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   }]

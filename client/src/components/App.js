@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 // root of react
@@ -32,16 +32,18 @@ class App extends Component{
   render() {
     console.log(this.props);
     return (
-      <div className="container">
+      <div>
         <Router>
           <div>
             <Navbar />
-            <Route exact path='/' component={Landing} />
+            <Route exact path='/'>
+              {this.props.auth ? <Redirect to={`/home`} /> : <Landing />}
+            </Route>
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/home' component={Home} />
             <Route path='/:userId/home' component={UsersHome} />
-            <Route path='/:usersId' component={UsersPage} />
+            {/* <Route path='/:usersId' component={UsersPage} /> */}
             <Route path='/posts/:postId' component={SinglePost} />
             <Route path='/:userId/upvotes' component={UsersUpvotes} />
             <Route path='/:userId/downvotes' component={UsersDownvotes} />
